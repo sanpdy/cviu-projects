@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="DiPACT learns subtle visual distinctions across images as new materials and classes are introduced.">
+  <title>DiPACT: Distributional Preference Alignment for Continual Material Characterization</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="site.css">
+  <script defer src="site.js"></script>
+</head>
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <button type="button" class="navbar-burger" aria-label="Menu" aria-expanded="false" aria-controls="research-menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="navbar-menu" id="research-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://uark-cviu.github.io/">
+      <span aria-label="Lab homepage">⌂</span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" href="#resources">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://uark-cviu.github.io/projects/qupaint/">
+            QuPAINT
+          </a>
+          <a class="navbar-item" href="https://uark-cviu.github.io/projects/Fai-DPO/">
+            ϕ-DPO
+          </a>
+          <a class="navbar-item" href="https://uark-cviu.github.io/projects/OpenQlaw/">OpenQlaw</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+<main id="main">
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DiPACT: Distributional Preference Alignment for Continual Material Characterization</h1>
+          <div class="is-size-5 publication-authors" aria-label="Authors">
+            <span class="author-block"><a href="https://openreview.net/profile?id=~Sankalp_Pandey1">Sankalp Pandey</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://openreview.net/profile?id=~Hoang-Quan_Nguyen1">Hoang-Quan Nguyen</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://openreview.net/profile?id=~Thanh-Dat_Truong1">Thanh-Dat Truong</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://openreview.net/profile?id=~Tim_Faltermeier1">Tim Faltermeier</a><sup>2</sup>,</span>
+            <span class="author-block"><a href="https://openreview.net/profile?id=~Taylor_D_Sparks1">Taylor D Sparks</a><sup>3</sup>,</span>
+            <span class="author-block"><a href="https://openreview.net/profile?id=~Mike_Kirby1">Mike Kirby</a><sup>3</sup>,</span>
+            <span class="author-block"><a href="https://openreview.net/profile?id=~Nicholas_J_Borys1">Nicholas J Borys</a><sup>3</sup>,</span>
+            <span class="author-block"><a href="https://openreview.net/profile?id=~Hugh_Churchill1">Hugh Churchill</a><sup>4</sup>,</span>
+            <span class="author-block"><a href="https://openreview.net/profile?id=~Khoa_Luu2">Khoa Luu</a><sup>1</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors" aria-label="Affiliations">
+            <span class="author-block"><sup>1</sup>CVIU Lab, University of Arkansas,</span>
+            <span class="author-block"><sup>2</sup>Montana State University,</span>
+            <span class="author-block"><sup>3</sup>University of Utah,</span>
+            <span class="author-block"><sup>4</sup>Department of Physics, University of Arkansas</span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block"><a href="./index.html" class="external-link button is-normal is-rounded is-dark"><span class="icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 16h6m-6-4h6"/></svg></span><span>PDF (TBD)</span></a></span>
+              <span class="link-block"><a href="./index.html" class="external-link button is-normal is-rounded is-dark"><span class="icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297a12 12 0 0 0-3.793 23.39c.6.11.82-.26.82-.58v-2.23c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.303-5.467-1.334-5.467-5.931 0-1.31.469-2.381 1.236-3.22-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 0 1 6.01 0c2.291-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.839 1.235 1.91 1.235 3.22 0 4.609-2.807 5.625-5.48 5.921.43.373.814 1.102.814 2.222v3.291c0 .322.216.694.825.576A12 12 0 0 0 12 .297Z"/></svg></span><span>Code (TBD)</span></a></span>
+              <span class="link-block"><a href="./index.html" class="external-link button is-normal is-rounded is-dark"><span class="icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="m4 16 5-5 3 3 3-4 5 6"/></svg></span><span>Data (TBD)</span></a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <a href="assets/teaser.webp"><img src="assets/teaser.webp" width="2071" height="1175" alt="DiPACT teaser showing overlap in microscopy features and how different training strategies affect recognition as materials are introduced."></a>
+    </div>
+  </div>
+</section>
+<section class="section"><div class="container is-max-desktop"><div class="columns is-centered has-text-centered"><div class="column is-four-fifths">
+<h2 class="title is-3" id="abstract">Abstract</h2>
+<div class="content has-text-justified">
+  <p>Vision-language models enable instruction-guided localization and recognition of two-dimensional quantum material flakes in microscopy images. Characterizing the atomic layer counts of these flakes is essential for selecting candidates with the desired properties for next-generation device fabrication, but this identification is challenged by similar optical signatures across layer classes and substantial appearance variation within each class. As new materials are introduced, models must learn these subtle visual distinctions while retaining earlier knowledge.</p>
+  <p>Conventional Direct Preference Optimization (DPO) ranks correct and incorrect characterizations individually, without aggregating the same visual distinction across images. We introduce Distributional Preference Alignment for Continual Training (DiPACT), which groups preferences sharing a directed correction and optimizes a smooth minimum of their margins. The objective emphasizes weak comparisons and aligns each group with a frozen reference selected for earlier or newly introduced classes. Our analysis connects the objective to Fisher discrimination under linear-Gaussian assumptions and bounds the loss of previously correct preference rankings under comparison coverage.</p>
+  <p>We also present the Continual Material Annotated Dataset (CoMAt), combining 205,362 expert-reviewed in-house annotations with public microscopy data for layer- and material-incremental evaluation. Experiments demonstrate state-of-the-art continual learning and fine-grained characterization performance among the evaluated methods, with benefits extending to visual recognition beyond the materials domain.</p>
+</div>
+</div></div></div></section>
+<section class="section" id="method"><div class="container is-max-desktop content">
+<h2 class="title is-3">DiPACT Overview</h2>
+      <p class="intro">DiPACT groups the same type of correction across images and gives more weight to comparisons the model finds hardest.</p>
+      <figure class="plate"><a href="assets/method.webp"><img src="assets/method.webp" width="1994" height="772" loading="lazy" alt="DiPACT method figure: group examples by directed correction, score the pairs with trainable and frozen policies, aggregate the margins and compare the two scores in the loss."></a><figcaption>The trainable model and frozen reference score the same group. Their smooth-minimum margins enter the loss.</figcaption></figure>
+      <div class="demo interpolation-panel" aria-labelledby="demo-title">
+        <div><h3 id="demo-title">Smooth-minimum weighting</h3><p>Lower temperatures give the weakest comparison more weight.</p>
+        <label class="slider-label" for="tau">Temperature <output id="tau-value" for="tau">1.0</output></label><input id="tau" type="range" min="0.2" max="4" value="1" step="0.1"></div>
+        <div><div class="demo-cols"><span>Comparison</span><span>Margin</span><span>Gradient weight</span></div><div id="weights"></div><p class="aggregate">Smooth-minimum margin <output id="aggregate"></output></p></div>
+      </div>
+
+</div></section>
+<section class="section" id="comat"><div class="container is-max-desktop content">
+<h2 class="title is-3">CoMAt Dataset</h2>
+      <div class="stats" aria-label="In-house annotation counts"><div><strong>205,362</strong><span>Reviewed annotations</span></div><div><strong>153,849</strong><span>Flake annotations</span></div><div><strong>51,513</strong><span>Non-flake annotations</span></div></div>
+      <figure class="plate comat-overview">
+        <a href="assets/comat.webp"><img src="assets/comat.webp" width="1943" height="1552" loading="lazy" alt="CoMAt microscopy examples by material and layer, with preferred annotations and rejected layer, detection, and localization errors."></a>
+        <figcaption>CoMAt supports learning new materials and graphite layer classes. The figure shows how annotations form preference pairs.</figcaption>
+      </figure>
+      <div class="material-viewer" aria-labelledby="material-viewer-title">
+        <div>
+          <h3 id="material-viewer-title">Browse material samples</h3>
+          <label for="material-select">Material</label>
+          <select id="material-select" aria-controls="material-sample">
+            <option value="graphite">Graphite</option>
+            <option value="wse2">WSe₂</option>
+            <option value="ws2">WS₂</option>
+            <option value="mos2">MoS₂</option>
+            <option value="wte2">WTe₂</option>
+          </select>
+          <p id="material-meta" aria-live="polite">Round 0 In-house microscopy</p>
+        </div>
+        <a href="assets/materials/graphite.webp" id="material-sample">
+          <img src="assets/materials/graphite.webp" width="320" height="282" alt="Graphite micrograph" loading="lazy">
+        </a>
+      </div>
+
+</div></section>
+<section class="section" id="results"><div class="container is-max-desktop content">
+<h2 class="title is-3">Results</h2>
+      <p class="intro">Compare results for new materials, new graphite layers, and a new damage class in satellite imagery.</p>
+      <div class="results">
+        <div class="tabs" role="tablist" aria-label="Evaluation protocols"><button type="button" role="tab" id="tab-material" aria-controls="result-panel" aria-selected="true" data-key="material">Materials</button><button type="button" role="tab" id="tab-layer" aria-controls="result-panel" aria-selected="false" tabindex="-1" data-key="layer">Graphite layers</button><button type="button" role="tab" id="tab-xbd" aria-controls="result-panel" aria-selected="false" tabindex="-1" data-key="xbd">Satellite imagery</button></div>
+        <div id="result-panel" role="tabpanel" aria-labelledby="tab-material" tabindex="0">
+          <h3 id="result-title"></h3><p id="result-note"></p>
+          <div id="result-table" class="table-wrap" tabindex="0" role="region" aria-label="Results table"></div>
+          <p id="result-footnote" class="fine"></p>
+          <p id="xbd-credit" class="fine" hidden>Dataset: Gupta et al. (2019), <a href="https://arxiv.org/abs/1911.09296">xBD: A Dataset for Assessing Building Damage from Satellite Imagery</a>.</p>
+          <noscript><p>DiPACT achieves 39.2 final AP50 on materials, 24.5 final AP50 on graphite layers, and 90.0 damage F1 on matched buildings in xBD.</p></noscript>
+        </div>
+      </div>
+      <figure class="plate qualitative" id="microscopy-example"><a href="assets/qualitative.webp"><img src="assets/qualitative.webp" width="1892" height="585" loading="lazy" alt="Qualitative graphite and MoS₂ predictions, comparing DiPACT with other methods and ground truth."></a><figcaption>Qualitative microscopy predictions. Yellow boxes mark annotations, green boxes mark matches, and red boxes mark false positives.</figcaption></figure>
+      <aside id="xbd-example" class="case-study" hidden aria-labelledby="case-title">
+        <h3 id="case-title">Qualitative xBD predictions</h3>
+        <h4>Hurricane Harvey (Major damage)</h4>
+        <div class="case-strip" id="case-harvey"></div>
+        <h4>Hurricane Matthew (Destroyed building)</h4>
+        <div class="case-strip" id="case-matthew"></div>
+      </aside>
+
+</div></section>
+<section class="section" id="team" aria-labelledby="team-title">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered mb-5" id="team-title">Team</h2>
+    <div class="columns is-centered is-multiline">
+      <article class="column is-4-tablet has-text-centered">
+        <figure class="image is-128x128 team-photo"><img class="is-rounded" src="assets/team/sankalp.webp" style="object-position: top;" alt="" width="128" height="128" loading="lazy"></figure>
+        <h3 class="title is-5 mt-4 mb-1"><a href="https://openreview.net/profile?id=~Sankalp_Pandey1">Sankalp Pandey</a></h3>
+        <p class="is-size-7 has-text-grey">CVIU Lab, University of Arkansas</p>
+        <div class="is-flex is-justify-content-center mt-2 team-links">
+          <a class="icon has-text-dark" href="https://www.sankalppandey.tech/" title="Sankalp Pandey: Website" aria-label="Sankalp Pandey: Website"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></a>
+          <a class="icon has-text-dark" href="https://scholar.google.com/citations?user=ax7YxjwAAAAJ&amp;hl=en" title="Sankalp Pandey: Google Scholar" aria-label="Sankalp Pandey: Google Scholar"><img src="assets/google-scholar.svg" width="16" height="16" alt="" aria-hidden="true"></a>
+        </div>
+      </article>
+      <article class="column is-4-tablet has-text-centered">
+        <figure class="image is-128x128 team-photo"><img class="is-rounded" src="assets/team/hoangquannguyen.jpeg" alt="" width="128" height="128" loading="lazy"></figure>
+        <h3 class="title is-5 mt-4 mb-1"><a href="https://openreview.net/profile?id=~Hoang-Quan_Nguyen1">Hoang-Quan Nguyen</a></h3>
+        <p class="is-size-7 has-text-grey">CVIU Lab, University of Arkansas</p>
+        <div class="is-flex is-justify-content-center mt-2 team-links">
+          <a class="icon has-text-dark" href="https://nhquanqt.github.io/" title="Hoang-Quan Nguyen: Website" aria-label="Hoang-Quan Nguyen: Website"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></a>
+          <a class="icon has-text-dark" href="https://scholar.google.com/citations?user=J414r4kAAAAJ&amp;hl=en" title="Hoang-Quan Nguyen: Google Scholar" aria-label="Hoang-Quan Nguyen: Google Scholar"><img src="assets/google-scholar.svg" width="16" height="16" alt="" aria-hidden="true"></a>
+        </div>
+      </article>
+      <article class="column is-4-tablet has-text-centered">
+        <figure class="image is-128x128 team-photo"><img class="is-rounded" src="assets/team/thanhdattruong.jpeg" alt="" width="128" height="128" loading="lazy"></figure>
+        <h3 class="title is-5 mt-4 mb-1"><a href="https://openreview.net/profile?id=~Thanh-Dat_Truong1">Thanh-Dat Truong</a></h3>
+        <p class="is-size-7 has-text-grey">CVIU Lab, University of Arkansas</p>
+        <div class="is-flex is-justify-content-center mt-2 team-links">
+          <a class="icon has-text-dark" href="https://truongthanhdat.github.io/" title="Thanh-Dat Truong: Website" aria-label="Thanh-Dat Truong: Website"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></a>
+          <a class="icon has-text-dark" href="https://scholar.google.com/citations?user=qrmxykkAAAAJ&amp;hl=en" title="Thanh-Dat Truong: Google Scholar" aria-label="Thanh-Dat Truong: Google Scholar"><img src="assets/google-scholar.svg" width="16" height="16" alt="" aria-hidden="true"></a>
+        </div>
+      </article>
+      <article class="column is-4-tablet has-text-centered">
+        <figure class="image is-128x128 team-photo"><img class="is-rounded" src="assets/team/timfaltermeier.webp" alt="" width="128" height="128" loading="lazy"></figure>
+        <h3 class="title is-5 mt-4 mb-1"><a href="https://openreview.net/profile?id=~Tim_Faltermeier1">Tim Faltermeier</a></h3>
+        <p class="is-size-7 has-text-grey">Montana State University</p>
+        <div class="is-flex is-justify-content-center mt-2 team-links">
+          <a class="icon has-text-dark" href="https://www.boryslab.com/people-1" title="Tim Faltermeier: Website" aria-label="Tim Faltermeier: Website"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></a>
+        </div>
+      </article>
+      <article class="column is-4-tablet has-text-centered">
+        <figure class="image is-128x128 team-photo"><img class="is-rounded" src="assets/team/sparks.webp" alt="" width="128" height="128" loading="lazy"></figure>
+        <h3 class="title is-5 mt-4 mb-1"><a href="https://openreview.net/profile?id=~Taylor_D_Sparks1">Taylor D Sparks</a></h3>
+        <p class="is-size-7 has-text-grey">University of Utah</p>
+        <div class="is-flex is-justify-content-center mt-2 team-links">
+          <a class="icon has-text-dark" href="https://my.eng.utah.edu/~sparks/" title="Taylor D Sparks: Website" aria-label="Taylor D Sparks: Website"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></a>
+          <a class="icon has-text-dark" href="https://scholar.google.com/citations?user=19j9s6oAAAAJ&amp;hl=en" title="Taylor D Sparks: Google Scholar" aria-label="Taylor D Sparks: Google Scholar"><img src="assets/google-scholar.svg" width="16" height="16" alt="" aria-hidden="true"></a>
+        </div>
+      </article>
+      <article class="column is-4-tablet has-text-centered">
+        <figure class="image is-128x128 team-photo"><img class="is-rounded" src="assets/team/kirby.webp" alt="" width="128" height="128" loading="lazy"></figure>
+        <h3 class="title is-5 mt-4 mb-1"><a href="https://openreview.net/profile?id=~Mike_Kirby1">Mike Kirby</a></h3>
+        <p class="is-size-7 has-text-grey">University of Utah</p>
+        <div class="is-flex is-justify-content-center mt-2 team-links">
+          <a class="icon has-text-dark" href="https://users.cs.utah.edu/~kirby/" title="Mike Kirby: Website" aria-label="Mike Kirby: Website"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></a>
+          <a class="icon has-text-dark" href="https://scholar.google.com/citations?user=IATz8BMAAAAJ&amp;hl=en" title="Mike Kirby: Google Scholar" aria-label="Mike Kirby: Google Scholar"><img src="assets/google-scholar.svg" width="16" height="16" alt="" aria-hidden="true"></a>
+        </div>
+      </article>
+      <article class="column is-4-tablet has-text-centered">
+        <figure class="image is-128x128 team-photo"><img class="is-rounded" src="assets/team/nicholasborys.webp" alt="" width="128" height="128" loading="lazy"></figure>
+        <h3 class="title is-5 mt-4 mb-1"><a href="https://openreview.net/profile?id=~Nicholas_J_Borys1">Nicholas J Borys</a></h3>
+        <p class="is-size-7 has-text-grey">University of Utah</p>
+        <div class="is-flex is-justify-content-center mt-2 team-links">
+          <a class="icon has-text-dark" href="https://www.boryslab.com/people-1" title="Nicholas J Borys: Website" aria-label="Nicholas J Borys: Website"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></a>
+          <a class="icon has-text-dark" href="https://scholar.google.com/citations?user=AA4JNhMAAAAJ&amp;hl=en" title="Nicholas J Borys: Google Scholar" aria-label="Nicholas J Borys: Google Scholar"><img src="assets/google-scholar.svg" width="16" height="16" alt="" aria-hidden="true"></a>
+        </div>
+      </article>
+      <article class="column is-4-tablet has-text-centered">
+        <figure class="image is-128x128 team-photo"><img class="is-rounded" src="assets/team/hughchurchill.webp" alt="" width="128" height="128" loading="lazy"></figure>
+        <h3 class="title is-5 mt-4 mb-1"><a href="https://openreview.net/profile?id=~Hugh_Churchill1">Hugh Churchill</a></h3>
+        <p class="is-size-7 has-text-grey">Department of Physics, University of Arkansas</p>
+        <div class="is-flex is-justify-content-center mt-2 team-links">
+          <a class="icon has-text-dark" href="https://physics.uark.edu/directory/index/uid/hchurch/name/Hugh+Churchill/" title="Hugh Churchill: Website" aria-label="Hugh Churchill: Website"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></a>
+          <a class="icon has-text-dark" href="https://scholar.google.com/citations?user=mTz6GK0AAAAJ&amp;hl=en" title="Hugh Churchill: Google Scholar" aria-label="Hugh Churchill: Google Scholar"><img src="assets/google-scholar.svg" width="16" height="16" alt="" aria-hidden="true"></a>
+        </div>
+      </article>
+      <article class="column is-4-tablet has-text-centered">
+        <figure class="image is-128x128 team-photo"><img class="is-rounded" src="assets/team/khoaluu.webp" alt="" width="128" height="128" loading="lazy"></figure>
+        <h3 class="title is-5 mt-4 mb-1"><a href="https://openreview.net/profile?id=~Khoa_Luu2">Khoa Luu</a></h3>
+        <p class="is-size-7 has-text-grey">CVIU Lab, University of Arkansas</p>
+        <div class="is-flex is-justify-content-center mt-2 team-links">
+          <a class="icon has-text-dark" href="https://engineering.uark.edu/electrical-engineering-computer-science/electrical-engineering-faculty/uid/khoaluu/name/Khoa+Luu/" title="Khoa Luu: Website" aria-label="Khoa Luu: Website"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></a>
+          <a class="icon has-text-dark" href="https://scholar.google.com/citations?user=JPAl8-gAAAAJ&amp;hl=en" title="Khoa Luu: Google Scholar" aria-label="Khoa Luu: Google Scholar"><img src="assets/google-scholar.svg" width="16" height="16" alt="" aria-hidden="true"></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section" id="resources" aria-labelledby="publications-title">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered mb-5" id="publications-title">Publications</h2>
+
+      <div class="content has-text-justified">
+        <h3 class="title is-4">Baseline Quantum Materials - AI Detectors</h3>
+        <p>
+          Code and trained checkpoints for baseline 2D-material flake detectors (YOLO, DETR, ViTDet, etc.):
+          <a href="https://github.com/uark-cviu/quantumflake" target="_blank" rel="noopener noreferrer"><strong>github.com/uark-cviu/quantumflake</strong></a>
+        </p>
+      </div>
+
+      <div class="content has-text-justified mt-6">
+        <h3 class="title is-4">Patents</h3>
+
+        <p>
+          Khoa Luu, Xuan Bac Nguyen.
+          <a href="https://patents.google.com/patent/US20260057279A1/en" target="_blank" rel="noopener noreferrer"><strong>Utilizing a Loss
+              Function to Minimize Quantum Information Gap.</strong></a>
+          US Patent App. 19/305,026, 2026.
+        </p>
+
+        <p>
+          Khoa Luu, Xuan Bac Nguyen, Hugh Churchill.
+          <a href="https://patents.google.com/patent/US20240282086A1/en" target="_blank" rel="noopener noreferrer"><strong>Automatically Detecting
+              False Negative Objects in 2D Material Detection Data Sets.</strong></a>
+          US Patent App. 18/443,058, 2024.
+        </p>
+      </div>
+
+      <div class="content has-text-justified mt-6">
+        <h3 class="title is-4">Papers</h3>
+        <p>
+          Van-Quang-Huy Nguyen, Hoang-Quan Nguyen, Samee U Khan, Ilya Safro, Khoa Luu.
+          <a href="https://arxiv.org/abs/2605.14001" target="_blank" rel="noopener noreferrer"><strong>QUACOD: Quantum Optimization via Coordinate
+              Descent for Scalable Drone Scheduling.</strong></a>
+          IEEE Quantum Week Conference, 2026.
+        </p>
+
+        <p>
+          Xuan Bac Nguyen, Hoang-Quan Nguyen, Sankalp Pandey, Tim Faltermeier, Nicholas Borys, Hugh Churchill, Khoa Luu.
+          <a href="https://openaccess.thecvf.com/content/CVPR2026F/papers/Nguyen_QuPAINT_Physics-Aware_Instruction_Tuning_Approach_to_Quantum_Material_Discovery_CVPRF_2026_paper.pdf"
+            target="_blank" rel="noopener noreferrer">
+            <strong>QuPAINT: Physics-Aware Instruction Tuning Approach to Quantum Material Discovery.</strong></a>
+          IEEE/CVF Conference on Computer Vision and Pattern Recognition, Findings Track, 2026.
+        </p>
+
+        
+
+        
+
+        <p>
+          James B. Holliday, Eneko Osaba, Khoa Luu.
+          <a href="https://arxiv.org/abs/2501.12652" target="_blank" rel="noopener noreferrer"><strong>An Advanced Hybrid Quantum Tabu Search
+              Approach to Vehicle Routing Problems.</strong></a>
+          Journal of Quantum Machine Intelligence, 2026.
+        </p>
+
+        
+
+        <p>
+          Hoang-Quan Nguyen, Xuan-Bac Nguyen, Sankalp Pandey, Samee U. Khan, Ilya Safro, Khoa Luu.
+          <a href="https://ieeexplore.ieee.org/document/11250125" target="_blank" rel="noopener noreferrer"><strong>QMoE: A Quantum Mixture of
+              Experts Framework for Scalable Quantum Neural Networks.</strong></a>
+          IEEE Quantum Week Workshop, 2025.
+        </p>
+
+        <p>
+          Xuan Bac Nguyen, Benjamin Thompson, Hugh Churchill, Khoa Luu, Samee U. Khan.
+          <a href="https://arxiv.org/abs/2309.09907" target="_blank" rel="noopener noreferrer"><strong>Quantum Vision Clustering.</strong></a>
+          Discover Internet of Things, Springer, 2025.
+        </p>
+
+        <p>
+          James B. Holliday, Darren Blount, Hoang-Quan Nguyen, Samee U. Khan, Khoa Luu.
+          <a href="https://ieeexplore.ieee.org/document/11250175" target="_blank" rel="noopener noreferrer"><strong>QUADRO: A Hybrid Quantum
+              Optimization Framework for Drone Delivery.</strong></a>
+          IEEE Quantum Week Conference, 2025.
+        </p>
+
+        <p>
+          Sankalp Pandey, Xuan Bac Nguyen, Nicholas Borys, Hugh Churchill, Khoa Luu.
+          <a href="https://arxiv.org/abs/2508.17261" target="_blank" rel="noopener noreferrer"><strong>CLIFF: Continual Learning for Incremental
+              Flake Features in 2D Material Identification.</strong></a>
+          NeurIPS Workshop, 2025.
+        </p>
+
+        <p>
+          Hoang-Quan Nguyen, Xuan Bac Nguyen, Samuel Yen-Chi Chen, Hugh Churchill, Nicholas Borys, Samee U. Khan, Khoa
+          Luu.
+          <a href="https://link.springer.com/article/10.1007/s42484-025-00276-2"
+            target="_blank" rel="noopener noreferrer"><strong>Diffusion-Inspired Quantum Noise Mitigation in Parameterized Quantum
+              Circuits.</strong></a>
+          Journal of Quantum Machine Intelligence, Springer, 2025.
+        </p>
+
+        <p>
+          Xuan Bac Nguyen, Hoang-Quan Nguyen, Hugh Churchill, Samee U. Khan, Khoa Luu.
+          <a href="https://ieeexplore.ieee.org/document/10768223" target="_blank" rel="noopener noreferrer"><strong>Hierarchical Quantum Control
+              Gates for Functional MRI Understanding.</strong></a>
+          IEEE Workshop on Signal Processing Systems (SiPS), 2024.
+        </p>
+
+        <p>
+          Xuan Bac Nguyen, Hoang-Quan Nguyen, Hugh Churchill, Samee U. Khan, Khoa Luu.
+          <a href="https://link.springer.com/article/10.1007/s42484-024-00192-x" target="_blank" rel="noopener noreferrer"><strong>Quantum Visual
+              Feature Encoding Revisited.</strong></a>
+          Journal of Quantum Machine Intelligence, 2024.
+        </p>
+
+        <p>
+          Xuan Bac Nguyen, Hoang-Quan Nguyen, Samuel Yen-Chi Chen, Samee U. Khan, Hugh Churchill, Khoa Luu.
+          <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10821154" target="_blank" rel="noopener noreferrer"><strong>QClusformer: A
+              Quantum Transformer-based Framework for Unsupervised Visual Clustering.</strong></a>
+          IEEE Quantum Week Workshop, 2024.
+        </p>
+
+        <p>
+          James B. Holliday, B. Morgan, Hugh Churchill, Khoa Luu.
+          <a href="https://ieeexplore.ieee.org/document/10821160" target="_blank" rel="noopener noreferrer"><strong>Hybrid Quantum Tabu Search for
+              Solving the Vehicle Routing Problem.</strong></a>
+          IEEE Quantum Week Workshop, 2024.
+        </p>
+
+        <p>
+          Xuan Bac Nguyen, A. Bisht, B. Thompson, Hugh Churchill, Khoa Luu, Samee U. Khan.
+          <a href="https://ieeexplore.ieee.org/document/10684707" target="_blank" rel="noopener noreferrer"><strong>Two-dimensional quantum
+              material identification via self-attention and soft-labeling in deep learning.</strong></a>
+          IEEE Access, Vol. 12, 2024.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+<section class="section" id="acknowledgements" aria-labelledby="acknowledgements-title">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered mb-5" id="acknowledgements-title">Acknowledgements</h2>
+
+      <div class="content has-text-justified">
+        <p>
+          This work is partly supported by MonArk NSF Quantum Foundry (DMR-1906383) and NSF Quantum Award (2444042). It
+          acknowledges the Arkansas High-Performance Computing Center for providing GPUs.
+        </p>
+      </div>
+
+      <div class="columns is-centered is-vcentered mt-5">
+        <div class="column is-4 has-text-centered">
+          <figure class="image" style="display: inline-block;">
+            <img src="assets/acknowledgements/monark.png" alt="MONARK Quantum Foundry Logo"
+              style="max-height: 120px; width: auto;">
+          </figure>
+        </div>
+
+        <div class="column is-4 has-text-centered">
+          <figure class="image" style="display: inline-block;">
+            <img src="assets/acknowledgements/nsf.png" alt="National Science Foundation Logo"
+              style="max-height: 120px; width: auto;">
+          </figure>
+        </div>
+
+        <div class="column is-4 has-text-centered">
+          <figure class="image" style="display: inline-block;">
+            <img src="assets/acknowledgements/ahpcc-logo.png" alt="Arkansas High-Performance Computing Center Logo"
+              style="max-height: 120px; width: auto;">
+          </figure>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered footer-links">
+      <a class="icon-link" href="./index.html" title="PDF (TBD)" aria-label="PDF (TBD)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 16h6m-6-4h6"/></svg></a>
+      <a class="icon-link" href="./index.html" title="Code (TBD)" aria-label="Code (TBD)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297a12 12 0 0 0-3.793 23.39c.6.11.82-.26.82-.58v-2.23c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.303-5.467-1.334-5.467-5.931 0-1.31.469-2.381 1.236-3.22-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 0 1 6.01 0c2.291-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.839 1.235 1.91 1.235 3.22 0 4.609-2.807 5.625-5.48 5.921.43.373.814 1.102.814 2.222v3.291c0 .322.216.694.825.576A12 12 0 0 0 12 .297Z"/></svg></a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>Source code borrowed from <a href="https://keunhong.com/">Keunhong Park</a>’s <a href="https://nerfies.github.io/">Nerfies</a> website (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>).</p>
+          <p>Please contact <a href="https://www.sankalppandey.tech/">Sankalp Pandey</a> for feedback and questions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body></html>
